@@ -1,0 +1,55 @@
+{
+  "dashboard": {
+    "title": "AI Team Dashboard",
+    "refreshInterval": 30000,
+    "enableAnimations": true,
+    "theme": "default"
+  },
+  "agents": [
+    {
+      "id": "nellie",
+      "name": "Nellie",
+      "color": "#4a6fa5",
+      "role": "Development Lead"
+    },
+    {
+      "id": "callie",
+      "name": "Callie",
+      "color": "#28a745",
+      "role": "Systems Monitor"
+    },
+    {
+      "id": "berry",
+      "name": "Berry",
+      "color": "#ffc107",
+      "role": "Data Processor"
+    },
+    {
+      "id": "razzy",
+      "name": "Razzy",
+      "color": "#dc3545",
+      "role": "Assistant"
+    },
+    {
+      "id": "richie",
+      "name": "Richie",
+      "color": "#17a2b8",
+      "role": "Documentation Specialist"
+    }
+  ],
+  "github": {
+    "repositories": [
+      "your-org/team-dashboard",
+      "your-org/link-project",
+      "your-org/main-repo"
+    ],
+    "apiEndpoint": "https://api.github.com",
+    "dataRefreshInterval": 60000
+  },
+  "features": {
+    "showActivityFeed": true,
+    "showProgressCharts": true,
+    "showCollaborationMap": true,
+    "enableNotifications": false
+  }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Dashboard - AI Agents Status</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Team Dashboard</h1>
+            <div class="last-updated">Last updated: <span id="update-time">Loading...</span></div>
+        </header>
+        
+        <div class="dashboard-grid">
+            <!-- Agent Status Cards -->
+            <section class="agent-status">
+                <h2>Agent Status</h2>
+                <div class="agent-cards">
+                    <div class="agent-card" id="nellie-card">
+                        <div class="agent-header">
+                            <div class="status-indicator" data-agent="nellie"></div>
+                            <h3>Nellie</h3>
+                        </div>
+                        <div class="agent-info">
+                            <p class="status-text" data-agent="nellie">Initializing...</p>
+                            <p class="task-text" data-agent="nellie">No current task</p>
+                        </div>
+                    </div>
+                    
+                    <div class="agent-card" id="callie-card">
+                        <div class="agent-header">
+                            <div class="status-indicator" data-agent="callie"></div>
+                            <h3>Callie</h3>
+                        </div>
+                        <div class="agent-info">
+                            <p class="status-text" data-agent="callie">Initializing...</p>
+                            <p class="task-text" data-agent="callie">No current task</p>
+                        </div>
+                    </div>
+                    
+                    <div class="agent-card" id="berry-card">
+                        <div class="agent-header">
+                            <div class="status-indicator" data-agent="berry"></div>
+                            <h3>Berry</h3>
+                        </div>
+                        <div class="agent-info">
+                            <p class="status-text" data-agent="berry">Initializing...</p>
+                            <p class="task-text" data-agent="berry">No current task</p>
+                        </div>
+                    </div>
+                    
+                    <div class="agent-card" id="razzy-card">
+                        <div class="agent-header">
+                            <div class="status-indicator" data-agent="razzy"></div>
+                            <h3>Razzy</h3>
+                        </div>
+                        <div class="agent-info">
+                            <p class="status-text" data-agent="razzy">Initializing...</p>
+                            <p class="task-text" data-agent="razzy">No current task</p>
+                        </div>
+                    </div>
+                    
+                    <div class="agent-card" id="richie-card">
+                        <div class="agent-header">
+                            <div class="status-indicator" data-agent="richie"></div>
+                            <h3>Richie</h3>
+                        </div>
+                        <div class="agent-info">
+                            <p class="status-text" data-agent="richie">Initializing...</p>
+                            <p class="task-text" data-agent="richie">No current task</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Activity Feed -->
+            <section class="activity-feed">
+                <h2>Recent Activity</h2>
+                <div class="feed-container">
+                    <ul id="activity-list">
+                        <li class="activity-item"><span class="timestamp">Just now</span> Dashboard initialized</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Progress Overview -->
+            <section class="progress-overview">
+                <h2>Project Progress</h2>
+                <div class="progress-charts">
+                    <canvas id="progress-chart"></canvas>
+                </div>
+            </section>
+            
+            <!-- Collaboration Map -->
+            <section class="collaboration-map">
+                <h2>Agent Collaboration</h2>
+                <div class="mermaid" id="collaboration-diagram">
+                    <!-- This will be populated by JavaScript -->
+                    <pre>graph LR
+                        A[Nellie] --> B[Callie]
+                        B --> C[Berry]
+                        C --> D[Razzy]
+                        D --> E[Richie]
+                        E --> A
+                    </pre>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
