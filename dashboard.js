@@ -316,10 +316,96 @@ async function fetchGitHubData() {
     // return response.json();
 }
 
+// GitHub API Integration
+let githubApi = null;
+let dashboardAggregator = null;
+
+// Initialize GitHub integration if token is available
+async function initializeGitHubIntegration() {
+    // Check for stored GitHub token
+    const token = localStorage.getItem('github-token');
+    
+    if (token) {
+        try {
+            githubApi = new GitHubAPI(token);
+            dashboardAggregator = new DashboardDataAggregator(githubApi);
+            
+            // Update dashboard with GitHub data
+            const rawData = await dashboardAggregator.collectAllData();
+            const formattedData = dashboardAggregator.formatForDashboard(rawData);
+            
+            updateDashboardWithData(formattedData);
+            addActivity("GitHub integration activated", "system", "info");
+        } catch (error) {
+            console.error('Error with GitHub integration:', error);
+            addActivity(`GitHub integration error: ${error.message}`, "system", "error");
+        }
+    } else {
+        addActivity("GitHub token not found - integration disabled", "system", "warning");
+    }
+}
+
+// Function to save GitHub token
+function saveGitHubToken(token) {
+    localStorage.setItem('github-token', token);
+    addActivity("GitHub token saved", "system", "info");
+    initializeGitHubIntegration(); // Re-initialize with the new token
+}
+
+// Function to remove GitHub token
+function removeGitHubToken() {
+    localStorage.removeItem('github-token');
+    addActivity("GitHub token removed", "system", "info");
+    githubApi = null;
+    dashboardAggregator = null;
+}
+
+// Enhanced update function that includes GitHub data
+async function updateDashboard() {
+    console.log('Updating dashboard...');
+    updateTimeDisplay();
+    
+    try {
+        // Update agent status cards
+        const agentData = await fetchAgentStatus();
+        updateAgentCards(agentData);
+        
+        // Update activity feed
+        const activityData = await fetchActivityFeed();
+        updateActivityFeed(activityData);
+        
+        // Update charts
+        updateCharts();
+        
+        // Update collaboration diagram
+        renderCollaborationDiagram();
+        
+        // If GitHub integration is available, update with GitHub data
+        if (dashboardAggregator) {
+            try {
+                const rawData = await dashboardAggregator.collectAllData();
+                const formattedData = dashboardAggregator.formatForDashboard(rawData);
+                updateDashboardWithData(formattedData);
+            } catch (error) {
+                console.error('Error updating with GitHub data:', error);
+                addActivity(`GitHub data update error: ${error.message}`, "system", "error");
+            }
+        }
+        
+        console.log('Dashboard updated successfully');
+    } catch (error) {
+        console.error('Error updating dashboard:', error);
+        addActivity(`Error updating dashboard: ${error.message}`, "system", "error");
+    }
+}
+
 // Export functions for potential use by GitHub Actions or other integrations
 window.TeamDashboard = {
     updateDashboard,
     initializeDashboard,
     fetchAgentStatus,
-    fetchActivityFeed
+    fetchActivityFeed,
+    initializeGitHubIntegration,
+    saveGitHubToken,
+    removeGitHubToken
 };

@@ -89,6 +89,24 @@
             <!-- Progress Overview -->
             <section class="progress-overview">
                 <h2>Project Progress</h2>
+                <div class="summary-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" data-summary="repositories">0</div>
+                        <div class="stat-label">Repositories</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-summary="open-issues">0</div>
+                        <div class="stat-label">Open Issues</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-summary="open-prs">0</div>
+                        <div class="stat-label">Open PRs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-summary="merged-prs">0</div>
+                        <div class="stat-label">Merged PRs</div>
+                    </div>
+                </div>
                 <div class="progress-charts">
                     <canvas id="progress-chart"></canvas>
                 </div>
@@ -108,10 +126,50 @@
                     </pre>
                 </div>
             </section>
+            
+            <!-- Repository Status -->
+            <section class="repository-status">
+                <h2>Repository Status</h2>
+                <div class="repo-cards">
+                    <div class="repo-card" data-repo="nelliebot/team-dashboard">
+                        <div class="repo-header">
+                            <h4 class="repo-name">team-dashboard</h4>
+                            <div class="repo-stats">
+                                <span class="repo-stars" title="Stars">⭐ <span>0</span></span>
+                            </div>
+                        </div>
+                        <div class="repo-details">
+                            <div class="repo-section">
+                                <strong>Issues:</strong> <span class="repo-issues-open">0</span> open
+                            </div>
+                            <div class="repo-section">
+                                <strong>PRs:</strong> <span class="repo-prs-open">0</span> open
+                            </div>
+                        </div>
+                    </div>
+                    <div class="repo-card" data-repo="nelliebot/link-project">
+                        <div class="repo-header">
+                            <h4 class="repo-name">link-project</h4>
+                            <div class="repo-stats">
+                                <span class="repo-stars" title="Stars">⭐ <span>0</span></span>
+                            </div>
+                        </div>
+                        <div class="repo-details">
+                            <div class="repo-section">
+                                <strong>Issues:</strong> <span class="repo-issues-open">0</span> open
+                            </div>
+                            <div class="repo-section">
+                                <strong>PRs:</strong> <span class="repo-prs-open">0</span> open
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="github-api.js"></script>
     <script src="dashboard.js"></script>
 </body>
 </html>
