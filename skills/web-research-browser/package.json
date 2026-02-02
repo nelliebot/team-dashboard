@@ -1,0 +1,19 @@
+{
+  "name": "web-research-browser-skill",
+  "version": "1.0.0",
+  "description": "Web research and browser automation skill for autonomous web-based problem solving",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Testing web research and browser automation functions\""
+  },
+  "keywords": [
+    "web",
+    "research",
+    "browser",
+    "automation",
+    "search",
+    "scraping"
+  ],
+  "author": "Nellie",
+  "license": "MIT"
+}

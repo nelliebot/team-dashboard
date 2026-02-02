@@ -1,0 +1,36 @@
+{
+  "name": "web-research-browser",
+  "version": "1.0.0",
+  "description": "Web research and browser automation skill for autonomous web-based problem solving",
+  "enabled": true,
+  "dependencies": [],
+  "permissions": [
+    "web_fetch",
+    "browser"
+  ],
+  "settings": {
+    "defaultTimeout": 30000,
+    "maxSearchResults": 10,
+    "retryAttempts": 3,
+    "userAgent": "OpenClaw Web Research Agent 1.0",
+    "respectRobotsTxt": true,
+    "maxConcurrentRequests": 3
+  },
+  "endpoints": {
+    "search": {
+      "method": "GET",
+      "path": "/search",
+      "description": "Perform web search on given query"
+    },
+    "browse": {
+      "method": "GET", 
+      "path": "/browse",
+      "description": "Browse to specific URL and return content"
+    },
+    "verify": {
+      "method": "POST",
+      "path": "/verify",
+      "description": "Verify content exists on webpage"
+    }
+  }
+}
