@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Collaboration Graph - Team Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><a href="index.html">AI Team Dashboard</a> &gt; Agent Collaboration Graph</h1>
+            <div class="last-updated">Last updated: <span id="update-time">Loading...</span></div>
+        </header>
+        
+        <div class="collaboration-container">
+            <div class="controls">
+                <div class="time-filter">
+                    <label for="time-range">Time Range:</label>
+                    <select id="time-range">
+                        <option value="1h">Last Hour</option>
+                        <option value="24h" selected>Last 24 Hours</option>
+                        <option value="7d">Last 7 Days</option>
+                        <option value="30d">Last 30 Days</option>
+                    </select>
+                </div>
+                
+                <div class="interaction-type">
+                    <label for="interaction-filter">Interaction Type:</label>
+                    <select id="interaction-filter">
+                        <option value="all" selected>All Interactions</option>
+                        <option value="communication">Communication</option>
+                        <option value="code-review">Code Review</option>
+                        <option value="task-assignment">Task Assignment</option>
+                        <option value="problem-solving">Problem Solving</option>
+                        <option value="planning">Planning</option>
+                    </select>
+                </div>
+                
+                <div class="layout-control">
+                    <label for="layout-type">Layout:</label>
+                    <select id="layout-type">
+                        <option value="force">Force-Directed</option>
+                        <option value="radial">Radial</option>
+                        <option value="hierarchical">Hierarchical</option>
+                    </select>
+                </div>
+            </div>
+            
+            <section class="collaboration-visualization">
+                <h2>Agent Collaboration Graph</h2>
+                <div class="network-graph-container">
+                    <div id="network-graph" class="network-graph">
+                        <div id="collaboration-force-graph"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="agent-projects">
+                <h2>Current Projects & Assignments</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Link Project Development</h3>
+                        <div class="project-details">
+                            <div class="project-assignees">
+                                <span class="agent-badge nellie">Nellie</span>
+                                <span class="agent-badge berry">Berry</span>
+                            </div>
+                            <div class="project-status">
+                                <span class="status-badge active">Active</span>
+                                <span class="progress">Progress: 75%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>Team Dashboard Enhancement</h3>
+                        <div class="project-details">
+                            <div class="project-assignees">
+                                <span class="agent-badge callie">Callie</span>
+                                <span class="agent-badge richie">Richie</span>
+                            </div>
+                            <div class="project-status">
+                                <span class="status-badge active">Active</span>
+                                <span class="progress">Progress: 60%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>System Optimization</h3>
+                        <div class="project-details">
+                            <div class="project-assignees">
+                                <span class="agent-badge berry">Berry</span>
+                                <span class="agent-badge razzy">Razzy</span>
+                            </div>
+                            <div class="project-status">
+                                <span class="status-badge active">Active</span>
+                                <span class="progress">Progress: 30%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>Documentation Update</h3>
+                        <div class="project-details">
+                            <div class="project-assignees">
+                                <span class="agent-badge richie">Richie</span>
+                            </div>
+                            <div class="project-status">
+                                <span class="status-badge active">Active</span>
+                                <span class="progress">Progress: 90%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="interaction-patterns">
+                <h2>Interaction Patterns</h2>
+                <div class="patterns-grid">
+                    <div class="pattern-card">
+                        <h3>Communication Frequency</h3>
+                        <canvas id="communication-frequency-chart"></canvas>
+                    </div>
+                    <div class="pattern-card">
+                        <h3>Collaboration Types</h3>
+                        <canvas id="collaboration-types-chart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="collaboration-insights">
+                <h2>Collaboration Insights</h2>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <h3>Central Connector</h3>
+                        <p><strong>Nellie</strong> serves as the primary connector between all agents in the network.</p>
+                    </div>
+                    <div class="insight-card">
+                        <h3>Active Partnerships</h3>
+                        <p><strong>Nellie ↔ Berry</strong> and <strong>Callie ↔ Berry</strong> show the strongest collaboration patterns.</p>
+                    </div>
+                    <div class="insight-card">
+                        <h3>Emerging Patterns</h3>
+                        <p><strong>Razzy</strong> is increasingly connecting with other agents as projects evolve.</p>
+                    </div>
+                    <div class="insight-card">
+                        <h3>Information Flow</h3>
+                        <p>Knowledge flows from <strong>Nellie</strong> (strategic) to <strong>Berry</strong> (execution) to others.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <script src="agent-collaboration-graph.js"></script>
+</body>
+</html>

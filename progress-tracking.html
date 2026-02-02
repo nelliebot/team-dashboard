@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracking - Team Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><a href="index.html">AI Team Dashboard</a> &gt; Progress Tracking</h1>
+            <div class="last-updated">Last updated: <span id="update-time">Loading...</span></div>
+        </header>
+        
+        <div class="progress-container">
+            <div class="overview-stats">
+                <div class="stat-card large">
+                    <div class="stat-value big" id="overall-progress">78%</div>
+                    <div class="stat-label">Overall Team Progress</div>
+                </div>
+                <div class="stat-card large">
+                    <div class="stat-value big" id="project-completion">65%</div>
+                    <div class="stat-label">Current Project Completion</div>
+                </div>
+                <div class="stat-card large">
+                    <div class="stat-value big" id="velocity">8.4</div>
+                    <div class="stat-label">Team Velocity (pts/sprint)</div>
+                </div>
+                <div class="stat-card large">
+                    <div class="stat-value big" id="efficiency">92%</div>
+                    <div class="stat-label">Team Efficiency</div>
+                </div>
+            </div>
+            
+            <section class="project-breakdown">
+                <h2>Project Breakdown</h2>
+                <div class="breakdown-container">
+                    <div class="breakdown-charts">
+                        <div class="chart-wrapper">
+                            <h3>Progress by Agent</h3>
+                            <canvas id="agent-progress-chart"></canvas>
+                        </div>
+                        <div class="chart-wrapper">
+                            <h3>Work Distribution</h3>
+                            <canvas id="work-distribution-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-details">
+                        <h3>Detailed Progress</h3>
+                        <div class="progress-bars">
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span>Link Project Development</span>
+                                    <span class="progress-percent">82%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 82%; background-color: #4a6fa5;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span>Dashboard Enhancement</span>
+                                    <span class="progress-percent">68%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 68%; background-color: #28a745;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span>System Integration</span>
+                                    <span class="progress-percent">45%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 45%; background-color: #ffc107;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span>Documentation Updates</span>
+                                    <span class="progress-percent">91%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 91%; background-color: #17a2b8;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="sprint-tracking">
+                <h2>Sprint Tracking</h2>
+                <div class="sprint-controls">
+                    <button id="prev-sprint" class="sprint-btn">&larr; Prev Sprint</button>
+                    <span id="current-sprint" class="sprint-label">Sprint 15: Jan 15 - Jan 29, 2024</span>
+                    <button id="next-sprint" class="sprint-btn">Next Sprint &rarr;</button>
+                </div>
+                
+                <div class="sprint-overview">
+                    <div class="sprint-stats">
+                        <div class="stat-card">
+                            <div class="stat-value" id="sprint-goal">42</div>
+                            <div class="stat-label">Sprint Goal (pts)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="completed-points">34</div>
+                            <div class="stat-label">Completed Points</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="remaining-points">8</div>
+                            <div class="stat-label">Remaining Points</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="sprint-burndown">85%</div>
+                            <div class="stat-label">Burndown Completion</div>
+                        </div>
+                    </div>
+                    
+                    <div class="burndown-chart-container">
+                        <canvas id="sprint-burndown-chart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="task-tracking">
+                <h2>Task Tracking</h2>
+                <div class="task-filters">
+                    <div class="filter-group">
+                        <label for="task-status-filter">Status:</label>
+                        <select id="task-status-filter">
+                            <option value="all">All</option>
+                            <option value="todo">To Do</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="review">Review</option>
+                            <option value="done">Done</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="task-priority-filter">Priority:</label>
+                        <select id="task-priority-filter">
+                            <option value="all">All</option>
+                            <option value="critical">Critical</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="task-agent-filter">Assigned To:</label>
+                        <select id="task-agent-filter">
+                            <option value="all">All Agents</option>
+                            <option value="nellie">Nellie</option>
+                            <option value="callie">Callie</option>
+                            <option value="berry">Berry</option>
+                            <option value="razzy">Razzy</option>
+                            <option value="richie">Richie</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="task-board">
+                    <div class="task-column">
+                        <h3>To Do <span class="task-count">(5)</span></h3>
+                        <div class="task-list" id="todo-tasks">
+                            <!-- Tasks will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="task-column">
+                        <h3>In Progress <span class="task-count">(3)</span></h3>
+                        <div class="task-list" id="in-progress-tasks">
+                            <!-- Tasks will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="task-column">
+                        <h3>Review <span class="task-count">(2)</span></h3>
+                        <div class="task-list" id="review-tasks">
+                            <!-- Tasks will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="task-column">
+                        <h3>Done <span class="task-count">(8)</span></h3>
+                        <div class="task-list" id="done-tasks">
+                            <!-- Tasks will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <script src="dashboard.js"></script>
+    <script src="progress-tracking.js"></script>
+</body>
+</html>

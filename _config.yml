@@ -1,0 +1,21 @@
+# GitHub Pages configuration
+title: AI Team Dashboard
+description: Real-time visibility interface for monitoring AI agent activities
+baseurl: "/team-dashboard"
+url: "https://nelliebot.github.io"
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
