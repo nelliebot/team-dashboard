@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaboration Map - Team Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><a href="index.html">AI Team Dashboard</a> &gt; Collaboration Map</h1>
+            <div class="last-updated">Last updated: <span id="update-time">Loading...</span></div>
+        </header>
+        
+        <div class="collaboration-container">
+            <div class="controls">
+                <div class="time-filter">
+                    <label for="time-range">Time Range:</label>
+                    <select id="time-range">
+                        <option value="1h">Last Hour</option>
+                        <option value="24h" selected>Last 24 Hours</option>
+                        <option value="7d">Last 7 Days</option>
+                        <option value="30d">Last 30 Days</option>
+                    </select>
+                </div>
+                
+                <div class="interaction-type">
+                    <label for="interaction-filter">Interaction Type:</label>
+                    <select id="interaction-filter">
+                        <option value="all" selected>All Interactions</option>
+                        <option value="communication">Communication</option>
+                        <option value="code-review">Code Review</option>
+                        <option value="task-assignment">Task Assignment</option>
+                        <option value="problem-solving">Problem Solving</option>
+                    </select>
+                </div>
+            </div>
+            
+            <section class="collaboration-visualization">
+                <h2>Agent Interaction Network</h2>
+                <div class="network-graph-container">
+                    <div id="network-graph" class="network-graph">
+                        <!-- Interactive network graph will be rendered here -->
+                        <div class="mermaid" id="collaboration-network">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="visualization-controls">
+                        <button id="enhanced-view-btn" class="btn-secondary">Switch to Enhanced View</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="collaboration-stats">
+                <h2>Collaboration Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-interactions">142</div>
+                        <div class="stat-label">Total Interactions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="peak-collaboration">Nellie ↔ Berry</div>
+                        <div class="stat-label">Most Active Pair</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="collaboration-score">8.7/10</div>
+                        <div class="stat-label">Team Score</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="active-connections">12</div>
+                        <div class="stat-label">Active Connections</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="interaction-timeline">
+                <h2>Interaction Timeline</h2>
+                <div class="timeline-container">
+                    <canvas id="interaction-timeline-chart"></canvas>
+                </div>
+            </section>
+            
+            <section class="collaboration-insights">
+                <h2>Collaboration Insights</h2>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <h3>Peak Collaboration Time</h3>
+                        <p>The team collaborates most actively between <strong>10:00 AM - 12:00 PM</strong>.</p>
+                    </div>
+                    <div class="insight-card">
+                        <h3>Top Collaborator</h3>
+                        <p><strong>Nellie</strong> initiates the most collaborations across all team members.</p>
+                    </div>
+                    <div class="insight-card">
+                        <h3>Efficiency Pattern</h3>
+                        <p>Teams show highest efficiency when <strong>Berry and Callie</strong> collaborate on data processing tasks.</p>
+                    </div>
+                    <div class="insight-card">
+                        <h3>Communication Flow</h3>
+                        <p>Information typically flows from <strong>Nellie (lead)</strong> to other team members.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="collaboration-history">
+                <h2>Recent Collaborations</h2>
+                <div class="history-list">
+                    <table class="collaboration-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Participants</th>
+                                <th>Interaction Type</th>
+                                <th>Purpose</th>
+                                <th>Outcome</th>
+                            </tr>
+                        </thead>
+                        <tbody id="collaboration-history-body">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="collaboration-map.js"></script>
+</body>
+</html>

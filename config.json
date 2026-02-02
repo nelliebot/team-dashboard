@@ -39,9 +39,9 @@
   ],
   "github": {
     "repositories": [
-      "your-org/team-dashboard",
-      "your-org/link-project",
-      "your-org/main-repo"
+      "nelliebot/team-dashboard",
+      "nelliebot/link-project",
+      "nelliebot/main-repo"
     ],
     "apiEndpoint": "https://api.github.com",
     "dataRefreshInterval": 60000
