@@ -1,0 +1,28 @@
+{
+  "name": "openclaw-skill-cloudflare",
+  "version": "1.0.0",
+  "description": "Cloudflare skill for OpenClaw - Provides utilities for Cloudflare Pages, Workers, DNS, and other services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy-pages": "node deploy-pages.js",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "openclaw",
+    "skill",
+    "cloudflare",
+    "deployment",
+    "pages",
+    "workers",
+    "dns"
+  ],
+  "author": "Nellie",
+  "license": "MIT",
+  "dependencies": {
+    "wrangler": "^latest"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

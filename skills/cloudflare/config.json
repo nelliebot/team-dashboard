@@ -1,0 +1,34 @@
+{
+  "defaultSettings": {
+    "accountId": "",
+    "projectName": "my-project",
+    "directory": "./dist",
+    "gitBranch": "main",
+    "timeout": 300000
+  },
+  "services": {
+    "pages": {
+      "enabled": true,
+      "defaultBuildCommand": "npm run build",
+      "defaultOutputDir": "dist"
+    },
+    "workers": {
+      "enabled": false
+    },
+    "dns": {
+      "enabled": false
+    },
+    "r2": {
+      "enabled": false
+    }
+  },
+  "security": {
+    "patLocation": "/home/afdon/annie-for-nellie/nellie-cloudflare-pat",
+    "maskTokensInLogs": true,
+    "validateCredentials": true
+  },
+  "development": {
+    "debug": false,
+    "logLevel": "info"
+  }
+}
