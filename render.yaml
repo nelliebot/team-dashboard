@@ -1,0 +1,8 @@
+services:
+- type: static
+  name: team-dashboard
+  env: static
+  buildCommand: echo "Building static site"
+  staticPublishPath: ./
+  branches:
+    - main
