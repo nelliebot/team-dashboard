@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npx http-server . -p 8080",
     "dev": "npx live-server --port=8080",
+    "build": "mkdir -p dist && cp -r *.html *.js *.css *.json _config.yml .github .gitignore scripts config.json github-api.js GITHUB_INTEGRATION.md README.md dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
